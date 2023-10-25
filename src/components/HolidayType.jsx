@@ -13,6 +13,7 @@ export const HolidayType = ({ value, updateFormData }) => {
             value={activity}
             checked={value === activity}
             onChange={typeOfHoliday}
+            required
           />
           <label>{activity}</label>
         </div>

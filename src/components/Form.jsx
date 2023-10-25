@@ -5,29 +5,35 @@ import { HolidayDestination } from "./HolidayDestination";
 import { HolidayType } from "./HolidayType";
 import { FormSummary } from "./FormSummary";
 import { Name } from "./Name";
+import { Email } from "./Email";
 import { HolidayActivities } from "./HolidayActivities";
 import { ExcitmentSlider } from "./ExcitmentSlider";
+
 
 export const Form = () => {
   const initialFormData = {
     name: "",
+    email: "",
     holidayType: "",
     destination: "",
     holidayActivity: "",
     excitmentLevel: 1,
   };
-
+ 
   const [formData, setFormData] = useState(initialFormData);
 
   const [currentStep, setCurrentStep] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
-  const [buttonState, setButtonState] = useState("let's plan");
+  const [emailErr, setEmailErr] = useState(false);
+  
+  // const [buttonState, setButtonState] = useState("let's plan");
+  const validEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
   const resetForm = () => {
     setFormData(initialFormData);
     setCurrentStep(0);
     setShowSummary(false);
-    setButtonState("Let's plan");
+    // setButtonState("Let's plan");
   };
 
   const updateFormData = (key, value) => {
@@ -35,76 +41,83 @@ export const Form = () => {
   };
 
   const nextStep = () => {
-    if (currentStep < 5) setCurrentStep(currentStep + 1);
+    if (currentStep < 6) setCurrentStep(currentStep + 1);
     // if (currentStep === 0 ) setButtonState("let's plan")
-    // else 
+    // else
     // setButtonState("Continue")
   };
 
-  
-  
   // Function to move to the previous step in the form
   const prevStep = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
   const renderSummary = () => {
+    
+      if (!validEmail.test(formData.email)) {
+         setEmailErr(true);
+      }
+    
+
     setShowSummary(!showSummary);
   };
   const formSubmit = (e) => {
     e.preventDefault();
   };
 
+  const steps = [
+    <HolidayPlanner key={currentStep} />,
+    <Name
+      key={currentStep}
+      value={formData.name}
+      updateFormData={updateFormData}
+    />,
+    <Email
+      key={currentStep}
+      value={formData.email}
+      updateFormData={updateFormData}
+    />,
+    <HolidayType
+      key={currentStep}
+      value={formData.holidayType}
+      updateFormData={updateFormData}
+    />,
+    <HolidayActivities
+      key={currentStep}
+      value={formData.holidayActivity}
+      updateFormData={updateFormData}
+      holidayType={formData.holidayType}
+    />,
+    <HolidayDestination
+      key={currentStep}
+      value={formData.destinaton}
+      updateFormData={updateFormData}
+    />,
+    <ExcitmentSlider
+      key={currentStep}
+      value={formData.excitmentLevel}
+      updateFormData={updateFormData}
+    />,
+  ];
+
   return (
     <div>
       {!showSummary ? (
         <form onSubmit={formSubmit}>
-          {currentStep == 0 && (
-            <div>
-              <HolidayPlanner />
-            </div>
-          )}
-          {currentStep == 1 && (
-            <div>
-              <Name value={formData.name} updateFormData={updateFormData} />
-            </div>
-          )}
-          {currentStep === 2 && (
-            <div>
-              <HolidayType
-                value={formData.holidayType}
-                updateFormData={updateFormData}
-              />
-            </div>
-          )}
-          {currentStep === 3 && (
-            <div>
-              <HolidayActivities
-                value={formData.holidayActivity}
-                updateFormData={updateFormData}
-                holidayType={formData.holidayType}
-              />
-            </div>
-          )}
-          {currentStep == 4 && (
-            <div>
-              <HolidayDestination
-                value={formData.destinaton}
-                updateFormData={updateFormData}
-              />
-            </div>
-          )}
-          {currentStep == 5 && (
-            <div>
-              <ExcitmentSlider
-                value={formData.excitmentLevel}
-                updateFormData={updateFormData}
-              />
-            </div>
+          {steps.map(
+            (step, index) =>
+              currentStep == index && (
+                <div key={index} className="formQuestions">
+                  {step}
+                </div>
+              )
           )}
           <div className="buttons">
             {currentStep > 1 && <button onClick={prevStep}>Back</button>}
-            {currentStep < 5 ? (
-              <button onClick={nextStep}> {currentStep === 0 ? "Let's plan" :"Continue"  }</button>
+            {currentStep < 6 ? (
+              <button onClick={nextStep}>
+                {" "}
+                {currentStep === 0 ? "Let's plan" : "Continue"}
+              </button>
             ) : (
               <button onClick={renderSummary} type="submit">
                 Submit
@@ -113,7 +126,7 @@ export const Form = () => {
           </div>
           <div className="progressBar">
             {currentStep > 0 && (
-              <input type="range" min="1" max="5" value={currentStep}></input>
+              <input type="range" min="1" max="6" value={currentStep}></input>
             )}
           </div>
         </form>
