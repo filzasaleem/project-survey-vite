@@ -1,8 +1,8 @@
 
 
-export const OnFlight = ({ value, updateFormData }) => {
-  const todoOnFlight = (e) => updateFormData("onflight", e.target.value);
-  const activities = ["reading", "sleeping", "watching movie"];
+export const HolidayType = ({ value, updateFormData }) => {
+  const typeOfHoliday = (e) => updateFormData("holidayType", e.target.value);
+  const activities = ["active", "relaxing"];
 
   return (
     <div>
@@ -12,7 +12,7 @@ export const OnFlight = ({ value, updateFormData }) => {
             type="radio"
             value={activity}
             checked={value === activity}
-            onChange={todoOnFlight}
+            onChange={typeOfHoliday}
           />
           <label>{activity}</label>
         </div>
