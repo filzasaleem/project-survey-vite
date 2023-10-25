@@ -16,7 +16,7 @@ export const Form = () => {
   });
   const [currentStep, setCurrentStep] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
-  // const [buttonState, setButtonState] = useState("let's plan");
+  const [buttonState, setButtonState] = useState("let's plan");
 
   const updateFormData = (key, value) => {
     setFormData((values) => ({ ...values, [key]: value }));
@@ -24,6 +24,8 @@ export const Form = () => {
 
   const nextStep = () => {
     if (currentStep < 4) setCurrentStep(currentStep + 1);
+    currentStep > 0 ? setButtonState("Continue") : setButtonState("let's plan");
+
   };
 
   // Function to move to the previous step in the form
@@ -72,10 +74,9 @@ export const Form = () => {
               updateFormData={updateFormData}
             />
           )}
-          {currentStep == 0 && <button onClick={nextStep}>Let's Plan</button>}
           {currentStep > 1 && <button onClick={prevStep}>Back</button>}
           {currentStep < 4 ? (
-            <button onClick={nextStep}>Continue</button>
+            <button onClick={nextStep}>{buttonState}</button>
           ) : (
             <button onClick={renderSummary} type="submit">
               Submit
