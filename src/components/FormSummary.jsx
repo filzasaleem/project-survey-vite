@@ -1,10 +1,11 @@
-export const FormSummary = ({destination, hotel, onFlight}) => {
-  console.log("in the form summary");
+export const FormSummary = ({ name, destinaton, holidayType,holidayActivity }) => {
+
   return (
     <div>
       <p>
-        For your favouriteholiday Destination you would like to go to {destination}. you would like to stay in a hotel 
-            where you woul like to have {hotel} and on the flight you would prefer to do {onFlight}.
+        Dear {name}, We just booked your dream trip to {destinaton} filled with 
+         {holidayType} activities. Among other things, you are gonna enjoy 
+       {holidayActivity}. Enjoy!
       </p>
     </div>
   );

@@ -35,7 +35,6 @@ export const Form = () => {
   };
   const formSubmit = (e) => {
     e.preventDefault();
-    console.log(formData.desination);
   };
 
   return (
@@ -51,7 +50,7 @@ export const Form = () => {
               
           }
           {currentStep == 1 && (
-            <Name value={formData.desination} updateFormData={updateFormData} />
+            <Name value={formData.name} updateFormData={updateFormData} />
           )}
           {currentStep === 2 && (
             <HolidayType
@@ -61,7 +60,7 @@ export const Form = () => {
           )}
           {currentStep === 3 && (
             <HolidayActivities
-              value={formData.holidayType}
+              value={formData.holidayActivity}
               updateFormData={updateFormData}
              holidayType = {formData.holidayType}
 
@@ -69,7 +68,7 @@ export const Form = () => {
           )}
           {currentStep == 4 && (
             <HolidayDestination
-              value={formData.desination}
+              value={formData.destinaton}
               updateFormData={updateFormData}
             />
           )}
@@ -84,10 +83,11 @@ export const Form = () => {
           )}
         </form>
       ) : (
-        <FormSummary
-          destination={formData.desination}
-          hotel={formData.hotel}
-          onFlight={formData.onflight}
+        <FormSummary  
+          name={formData.name}
+          destinaton={formData.desination}
+          holidayType={formData.holidayType}
+          holidayActivity =  {formData.holidayActivity}
         />
       )}
     </div>
