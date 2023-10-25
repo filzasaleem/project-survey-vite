@@ -1,11 +1,17 @@
-export const FormSummary = ({ name, destinaton, holidayType,holidayActivity }) => {
-
+export const FormSummary = ({
+  name,
+  destination,
+  holidayType,
+  holidayActivity,
+}) => {
   return (
     <div>
+      <h3>Dear {name}</h3>
       <p>
-        Dear {name}, {<br/>} We just booked your dream trip to {destinaton} filled with 
-         { holidayType} activities. Among other things, you are gonna enjoy 
-       { holidayActivity}. Enjoy!
+        {" "}
+        We just booked your dream trip to {destination} filled with
+        {" "}{holidayType} activities. Among other things, you are gonna enjoy {" "}
+        {holidayActivity}. Enjoy!
       </p>
     </div>
   );

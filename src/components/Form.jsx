@@ -6,13 +6,15 @@ import { HolidayType } from "./HolidayType";
 import { FormSummary } from "./FormSummary";
 import { Name } from "./Name";
 import { HolidayActivities } from "./HolidayActivities";
+import { ExcitmentSlider } from "./ExcitmentSlider";
 
 export const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
     holidayType: "",
-    desination: "",
+    destination: "",
     holidayActivity: "",
+    excitmentLevel: 1,
   });
   const [currentStep, setCurrentStep] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
@@ -23,7 +25,7 @@ export const Form = () => {
   };
 
   const nextStep = () => {
-    if (currentStep < 4) setCurrentStep(currentStep + 1);
+    if (currentStep < 5) setCurrentStep(currentStep + 1);
     currentStep > 0 ? setButtonState("Continue") : setButtonState("let's plan");
 
   };
@@ -41,7 +43,6 @@ export const Form = () => {
 
   return (
     <div>
-      <p>form for favourite holiday destination</p>
       {!showSummary ? (
         <form onSubmit={formSubmit}>
            
@@ -74,8 +75,14 @@ export const Form = () => {
               updateFormData={updateFormData}
             />
           )}
+          {currentStep == 5 && (
+            <ExcitmentSlider
+              value={formData.excitmentLevel}
+              updateFormData={updateFormData}
+            />
+          )}
           {currentStep > 1 && <button onClick={prevStep}>Back</button>}
-          {currentStep < 4 ? (
+          {currentStep < 5 ? (
             <button onClick={nextStep}>{buttonState}</button>
           ) : (
             <button onClick={renderSummary} type="submit">
@@ -86,7 +93,7 @@ export const Form = () => {
       ) : (
         <FormSummary  
           name={formData.name}
-          destinaton={formData.desination}
+          destination={formData.destination}
           holidayType={formData.holidayType}
           holidayActivity =  {formData.holidayActivity}
         />

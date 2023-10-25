@@ -1,5 +1,5 @@
 export const HolidayDestination = ({ value, updateFormData }) => {
-  const dreamDestination = (e) => updateFormData("destinaton", e.target.value);
+  const dreamDestination = (e) => updateFormData("destination", e.target.value);
 
   return (
     <div>
