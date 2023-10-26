@@ -1,0 +1,28 @@
+
+
+.progressBar {
+    width: 100%;
+    margin-top: 2em;
+    -webkit-appearance: none;
+  }
+  
+  .progressBar::-webkit-slider-runnable-track {
+    height: 20px;
+    background: gray; 
+    
+    border-radius: 5px;
+  }
+  
+  .progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ED6A5A; 
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+  }
+  
+
+  
+  

@@ -1,8 +1,10 @@
+import "./ProgressBar.css"
+
 export const ProgressBar = ({currentStep}) => {
   return (
-    <div className="progressBar">
+    <div className="form-row">
       {currentStep > 0 && (
-        <input type="range" min="1" max="6" value={currentStep}></input>
+        <input className="progressBar" type="range" min="1" max="5" value={currentStep} ></input>
       )}
     </div>
   );

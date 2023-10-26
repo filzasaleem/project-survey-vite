@@ -8,6 +8,7 @@ import { Name } from "../Name/Name";
 import { HolidayActivities } from "../HolidayActivities/HolidayActivities";
 import { ExcitmentSlider } from "../ExcitmentSlider/ExcitmentSlider";
 import { ProgressBar } from "../ProgressBar/ProgressBar";
+import { Error } from "../Error/Error";
 import "./Form.css";
 import "../Button/Button.css";
 
@@ -24,13 +25,13 @@ export const Form = () => {
 
   const [currentStep, setCurrentStep] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
-
+  const [error, setError] = useState(false);
 
   const resetForm = () => {
     setFormData(initialFormData);
     setCurrentStep(0);
     setShowSummary(false);
-    // setButtonState("Let's plan");
+    setError(false);
   };
 
   const updateFormData = (key, value) => {
@@ -39,18 +40,22 @@ export const Form = () => {
 
   const nextStep = () => {
     if (currentStep < 5) setCurrentStep(currentStep + 1);
-    // if (currentStep === 0 ) setButtonState("let's plan")
-    // else
-    // setButtonState("Continue")
   };
 
-  // Function to move to the previous step in the form
   const prevStep = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
-  const renderSummary = () => {
-    setShowSummary(!showSummary);
+  const validate = () => {
+    if (
+      formData.name != initialFormData.name &&
+      formData.holidayType != initialFormData.holidayType &&
+      formData.destination != initialFormData.destination &&
+      formData.holidayActivity != initialFormData.holidayActivity
+    )
+      setShowSummary(!showSummary);
+    else setError(true);
   };
+
   const formSubmit = (e) => {
     e.preventDefault();
   };
@@ -87,48 +92,57 @@ export const Form = () => {
 
   return (
     <div className="form-outer-wrapper">
-      {!showSummary ? (
-        <form onSubmit={formSubmit} className="form">
-          {steps.map(
-            (step, index) =>
-              currentStep == index && (
+      {!error ? (
+        !showSummary ? (
+          <form onSubmit={formSubmit} className="form">
+            {steps.map((step, index) =>
+              currentStep === index ? (
                 <div key={index} className="formQuestions">
                   {step}
                 </div>
-              )
-          )}
-          <div className="buttons">
-            {currentStep > 1 && (
-              <button className="btn-back" onClick={prevStep}>
-                Back
-              </button>
+              ) : null
             )}
-            {currentStep < 5 ? (
-              <button
-                className={currentStep === 0 ? "btn" : "btn btn-secondary"}
-                onClick={nextStep}
-              >
-                {currentStep === 0 ? "Let's plan" : "Continue"}
-              </button>
-            ) : (
-              <button className="btn" onClick={renderSummary} type="submit">
-                Submit
-              </button>
-            )}
+
+            <div className="buttons">
+              {currentStep > 1 && (
+                <button className="btn-back" onClick={prevStep}>
+                  Back
+                </button>
+              )}
+              {currentStep < 5 ? (
+                <button
+                  className={currentStep === 0 ? "btn" : "btn btn-secondary"}
+                  onClick={nextStep}
+                >
+                  {currentStep === 0 ? "Let's plan" : "Continue"}
+                </button>
+              ) : (
+                <button className="btn" onClick={validate} type="submit">
+                  Submit
+                </button>
+              )}
+            </div>
+            <ProgressBar currentStep={currentStep} />
+          </form>
+        ) : (
+          <div className="form-summary-wrapper">
+            <FormSummary
+              name={formData.name}
+              destination={formData.destination}
+              holidayType={formData.holidayType}
+              holidayActivity={formData.holidayActivity}
+              excitmentLevel={formData.excitmentLevel}
+            />
+            <button className="btn btn-center" onClick={resetForm}>
+              Plan a new trip
+            </button>
           </div>
-          <ProgressBar currentStep={currentStep} />
-        </form>
+        )
       ) : (
-        <div className="form-summary-wrapper">
-          <FormSummary
-            name={formData.name}
-            destination={formData.destination}
-            holidayType={formData.holidayType}
-            holidayActivity={formData.holidayActivity}
-            excitmentLevel={formData.excitmentLevel}
-          />
+        <div>
+          <Error />
           <button className="btn btn-center" onClick={resetForm}>
-            Plan a new trip
+            Start over
           </button>
         </div>
       )}
