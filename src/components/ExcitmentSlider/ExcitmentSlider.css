@@ -1,0 +1,9 @@
+.slider-excited {
+    cursor: pointer;
+    width: 100%;
+    /* background: #ED6A5A; */
+}
+
+.slider-excited::-webkit-slider-runnable-track {
+    
+}

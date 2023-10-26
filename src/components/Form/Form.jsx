@@ -1,13 +1,14 @@
 import { useState } from "react";
 
-import { HolidayPlanner } from "./HolidayPlanner";
-import { HolidayDestination } from "./HolidayDestination";
-import { HolidayType } from "./HolidayType";
-import { FormSummary } from "./FormSummary";
-import { Name } from "./Name";
-import { Email } from "./Email";
-import { HolidayActivities } from "./HolidayActivities";
-import { ExcitmentSlider } from "./ExcitmentSlider";
+import { HolidayPlanner } from "../HolidayPlanner/HolidayPlanner";
+import { HolidayDestination } from "../HolidayDestination/HolidayDestination";
+import { HolidayType } from "../HolidayType/HolidayType";
+import { FormSummary } from "../FormSummary/FormSummary";
+import { Name } from "../Name/Name";
+import { HolidayActivities } from "../HolidayActivities/HolidayActivities";
+import { ExcitmentSlider } from "../ExcitmentSlider/ExcitmentSlider";
+import "./Form.css";
+import "../Button/Button.css"
 
 
 export const Form = () => {
@@ -100,26 +101,62 @@ export const Form = () => {
   ];
 
   return (
-    <div>
+    <div className="form-outer-wrapper">
       {!showSummary ? (
-        <form onSubmit={formSubmit}>
-          {steps.map(
-            (step, index) =>
-              currentStep == index && (
-                <div key={index} className="formQuestions">
-                  {step}
-                </div>
-              )
+        <form onSubmit={formSubmit} className="form">
+          {currentStep == 0 && (
+            <div>
+              <HolidayPlanner />
+            </div>
+          )}
+          {currentStep == 1 && (
+            <div>
+              <Name value={formData.name} updateFormData={updateFormData} />
+            </div>
+          )}
+          {currentStep === 2 && (
+            <div>
+              <HolidayType
+                value={formData.holidayType}
+                updateFormData={updateFormData}
+              />
+            </div>
+          )}
+          {currentStep === 3 && (
+            <div>
+              <HolidayActivities
+                value={formData.holidayActivity}
+                updateFormData={updateFormData}
+                holidayType={formData.holidayType}
+              />
+            </div>
+          )}
+          {currentStep == 4 && (
+            <div>
+              <HolidayDestination
+                value={formData.destinaton}
+                updateFormData={updateFormData}
+              />
+            </div>
+          )}
+          {currentStep == 5 && (
+            <div>
+              <ExcitmentSlider
+                value={formData.excitmentLevel}
+                updateFormData={updateFormData}
+              />
+            </div>
           )}
           <div className="buttons">
-            {currentStep > 1 && <button onClick={prevStep}>Back</button>}
-            {currentStep < 6 ? (
-              <button onClick={nextStep}>
-                {" "}
-                {currentStep === 0 ? "Let's plan" : "Continue"}
+            {currentStep > 1 && <button className="btn-back" onClick={prevStep}>Back</button>}
+            {currentStep < 5 ? (
+              <button 
+                className={currentStep === 0 ? "btn" :"btn btn-secondary"  } 
+                onClick={nextStep}> 
+                  {currentStep === 0 ? "Let's plan" :"Continue"  }
               </button>
             ) : (
-              <button onClick={renderSummary} type="submit">
+              <button className="btn" onClick={renderSummary} type="submit">
                 Submit
               </button>
             )}
@@ -131,7 +168,7 @@ export const Form = () => {
           </div>
         </form>
       ) : (
-        <div>
+        <div className="form-summary-wrapper" >
           <FormSummary
             name={formData.name}
             destination={formData.destination}
@@ -139,7 +176,7 @@ export const Form = () => {
             holidayActivity={formData.holidayActivity}
             excitmentLevel={formData.excitmentLevel}
           />
-          <button onClick={resetForm}>Plan a new trip</button>
+          <button className="btn btn-center" onClick={resetForm}>Plan a new trip</button>
         </div>
       )}
     </div>

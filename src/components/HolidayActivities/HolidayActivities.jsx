@@ -1,4 +1,5 @@
 import React from 'react';
+import "./HolidayActivities.css";
 
 export const HolidayActivities = ({ value, updateFormData, holidayType }) => {
   const activities = {
@@ -9,8 +10,12 @@ export const HolidayActivities = ({ value, updateFormData, holidayType }) => {
   const activityOptions = holidayType in activities ? activities[holidayType] : [];
 
   return (
-    <div>
-      <label>What kind of activity do you like?</label>
+    <div className="form-row">
+      <label>
+        <h3 className="text-center">
+          What would you like to do on your holiday?
+        </h3>
+      </label>
       <select value={value} onChange={(e) => updateFormData("holidayActivity", e.target.value)}>
         <option value="">Select your favorite holiday activity</option>
         {activityOptions.map((activity) => (

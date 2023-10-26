@@ -1,0 +1,8 @@
+input[type=select] {
+    width: 100%;
+    max-width: 20rem;
+
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+}

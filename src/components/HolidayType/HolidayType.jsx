@@ -2,10 +2,13 @@
 
 export const HolidayType = ({ value, updateFormData }) => {
   const typeOfHoliday = (e) => updateFormData("holidayType", e.target.value);
-  const activities = ["active", "relaxing"];
+  const activities = ["Active", "Relaxing"];
 
   return (
-    <div>
+    <div className="form-row">
+      <label>
+        <h3 className="text-center">Do you prefare an active or relaxing holiday?</h3>
+      </label>
       {activities.map((activity) => (
         <div key={activity}>
           <input
@@ -15,7 +18,7 @@ export const HolidayType = ({ value, updateFormData }) => {
             onChange={typeOfHoliday}
             required
           />
-          <label>{activity}</label>
+          <label> {activity}</label>
         </div>
       ))}
     </div>
