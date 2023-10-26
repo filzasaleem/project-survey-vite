@@ -3,8 +3,8 @@ import "./HolidayActivities.css";
 
 export const HolidayActivities = ({ value, updateFormData, holidayType }) => {
   const activities = {
-    active: ["Skiing and snowboarding", "Diving", "Mountain biking", "Skiing", "Surfing"],
-    relaxing: ["Chilling by the pool", "Sipping a glass of wine", "Reading a book", "Enjoying nice views"],
+    Active: ["Skiing and snowboarding", "Diving", "Mountain biking", "Skiing", "Surfing"],
+    Relaxing: ["Chilling by the pool", "Sipping a glass of wine", "Reading a book", "Enjoying nice views"],
   };
 
   const activityOptions = holidayType in activities ? activities[holidayType] : [];

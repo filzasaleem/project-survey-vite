@@ -26,10 +26,9 @@ form {
 @media (min-width:375px){
 
 }
-
-@media (min-width: 600px) {
+ @media (min-width: 600px) {
     .form-outer-wrapper {
-        wi
+        
         max-width: 80%;
         margin-top: 2em;
         padding: 4em 4em;
@@ -41,4 +40,4 @@ form {
         max-width: 80%;
         margin-top: 3em;
     }
-}
+} 

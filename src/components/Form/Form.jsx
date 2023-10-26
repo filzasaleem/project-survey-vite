@@ -7,28 +7,24 @@ import { FormSummary } from "../FormSummary/FormSummary";
 import { Name } from "../Name/Name";
 import { HolidayActivities } from "../HolidayActivities/HolidayActivities";
 import { ExcitmentSlider } from "../ExcitmentSlider/ExcitmentSlider";
+import { ProgressBar } from "../ProgressBar/ProgressBar";
 import "./Form.css";
-import "../Button/Button.css"
-
+import "../Button/Button.css";
 
 export const Form = () => {
   const initialFormData = {
     name: "",
-    email: "",
     holidayType: "",
     destination: "",
     holidayActivity: "",
     excitmentLevel: 1,
   };
- 
+
   const [formData, setFormData] = useState(initialFormData);
 
   const [currentStep, setCurrentStep] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
-  const [emailErr, setEmailErr] = useState(false);
-  
-  // const [buttonState, setButtonState] = useState("let's plan");
-  const validEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+
 
   const resetForm = () => {
     setFormData(initialFormData);
@@ -42,7 +38,7 @@ export const Form = () => {
   };
 
   const nextStep = () => {
-    if (currentStep < 6) setCurrentStep(currentStep + 1);
+    if (currentStep < 5) setCurrentStep(currentStep + 1);
     // if (currentStep === 0 ) setButtonState("let's plan")
     // else
     // setButtonState("Continue")
@@ -53,12 +49,6 @@ export const Form = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
   const renderSummary = () => {
-    
-      if (!validEmail.test(formData.email)) {
-         setEmailErr(true);
-      }
-    
-
     setShowSummary(!showSummary);
   };
   const formSubmit = (e) => {
@@ -70,11 +60,6 @@ export const Form = () => {
     <Name
       key={currentStep}
       value={formData.name}
-      updateFormData={updateFormData}
-    />,
-    <Email
-      key={currentStep}
-      value={formData.email}
       updateFormData={updateFormData}
     />,
     <HolidayType
@@ -104,56 +89,26 @@ export const Form = () => {
     <div className="form-outer-wrapper">
       {!showSummary ? (
         <form onSubmit={formSubmit} className="form">
-          {currentStep == 0 && (
-            <div>
-              <HolidayPlanner />
-            </div>
-          )}
-          {currentStep == 1 && (
-            <div>
-              <Name value={formData.name} updateFormData={updateFormData} />
-            </div>
-          )}
-          {currentStep === 2 && (
-            <div>
-              <HolidayType
-                value={formData.holidayType}
-                updateFormData={updateFormData}
-              />
-            </div>
-          )}
-          {currentStep === 3 && (
-            <div>
-              <HolidayActivities
-                value={formData.holidayActivity}
-                updateFormData={updateFormData}
-                holidayType={formData.holidayType}
-              />
-            </div>
-          )}
-          {currentStep == 4 && (
-            <div>
-              <HolidayDestination
-                value={formData.destinaton}
-                updateFormData={updateFormData}
-              />
-            </div>
-          )}
-          {currentStep == 5 && (
-            <div>
-              <ExcitmentSlider
-                value={formData.excitmentLevel}
-                updateFormData={updateFormData}
-              />
-            </div>
+          {steps.map(
+            (step, index) =>
+              currentStep == index && (
+                <div key={index} className="formQuestions">
+                  {step}
+                </div>
+              )
           )}
           <div className="buttons">
-            {currentStep > 1 && <button className="btn-back" onClick={prevStep}>Back</button>}
+            {currentStep > 1 && (
+              <button className="btn-back" onClick={prevStep}>
+                Back
+              </button>
+            )}
             {currentStep < 5 ? (
-              <button 
-                className={currentStep === 0 ? "btn" :"btn btn-secondary"  } 
-                onClick={nextStep}> 
-                  {currentStep === 0 ? "Let's plan" :"Continue"  }
+              <button
+                className={currentStep === 0 ? "btn" : "btn btn-secondary"}
+                onClick={nextStep}
+              >
+                {currentStep === 0 ? "Let's plan" : "Continue"}
               </button>
             ) : (
               <button className="btn" onClick={renderSummary} type="submit">
@@ -161,14 +116,10 @@ export const Form = () => {
               </button>
             )}
           </div>
-          <div className="progressBar">
-            {currentStep > 0 && (
-              <input type="range" min="1" max="6" value={currentStep}></input>
-            )}
-          </div>
+          <ProgressBar currentStep={currentStep} />
         </form>
       ) : (
-        <div className="form-summary-wrapper" >
+        <div className="form-summary-wrapper">
           <FormSummary
             name={formData.name}
             destination={formData.destination}
@@ -176,7 +127,9 @@ export const Form = () => {
             holidayActivity={formData.holidayActivity}
             excitmentLevel={formData.excitmentLevel}
           />
-          <button className="btn btn-center" onClick={resetForm}>Plan a new trip</button>
+          <button className="btn btn-center" onClick={resetForm}>
+            Plan a new trip
+          </button>
         </div>
       )}
     </div>
