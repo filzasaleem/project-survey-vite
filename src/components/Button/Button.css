@@ -22,7 +22,9 @@
 }
 
 @media (min-width:900px) {
-    margin-bottom: 4em;
+    .btn-back {
+        margin-bottom: 4em;
+    }
 }
 .btn-back {
     background-color: transparent;
