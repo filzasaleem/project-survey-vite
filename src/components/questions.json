@@ -1,0 +1,36 @@
+{
+    "questions": [
+        {
+            "question1": "what's your name?"
+        },
+        {
+            "question2": "Do you prefer an active or relaxing holiday?",
+            "options": [
+                "Active",
+                "Relaxing"
+            ]
+        },
+        {
+            "question3": "What would you like to do on your holiday?",
+            "Active": [
+                "Skiing and snowboarding",
+                "Diving",
+                "Mountain biking",
+                "Skiing",
+                "Surfing"
+            ],
+            "Relaxing": [
+                "Chilling by the pool",
+                "Sipping a glass of wine",
+                "Reading a book",
+                "Enjoying nice views"
+            ]
+        },
+        {
+            "question4": "What's your dream destination?"
+        },
+        {
+            "question5": " How excited are you going on your dream holiday?"
+        }
+    ]
+}

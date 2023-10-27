@@ -5,6 +5,7 @@ export const FormSummary = ({
   holidayType,
   holidayActivity,
   excitmentLevel,
+  resetForm
 }) => {
   let feelings = "";
   if (excitmentLevel < 35) {
@@ -17,8 +18,9 @@ export const FormSummary = ({
     feelings =
       "With your high level of excitement, you're in for an amazing trip filled with joy and adventure!";
   }
-
+const handleFormReset = () => resetForm();
   return (
+    <>
     <article className="text form-summary">
       <h3>Dear <span className="primary-color">{name}</span></h3>
       <p>
@@ -29,5 +31,11 @@ export const FormSummary = ({
       <h4>Enjoy!</h4>
       
     </article>
+    <div className="btn" >
+    <button onClick={handleFormReset}>Plan a new trip</button>
+
+    </div>
+    </>
+
   );
 };
