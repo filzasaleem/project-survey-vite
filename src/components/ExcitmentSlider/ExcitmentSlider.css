@@ -1,9 +1,20 @@
 .slider-excited {
     cursor: pointer;
     width: 100%;
-    /* background: #ED6A5A; */
+    accent-color: #ED6A5A;
 }
 
-.slider-excited::-webkit-slider-runnable-track {
-    
+.excitment-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.excitment:first-child  {
+    font-size: 1rem;
+    color: #404040;
+}
+.excitment {
+    font-size: 1.25rem;
+    color: #ED6A5A;
+    font-weight: 700;
 }

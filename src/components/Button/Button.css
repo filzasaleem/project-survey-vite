@@ -17,6 +17,13 @@
     font-size: 1.25em;
 }
 
+.btn-start {
+    margin-bottom: 2em;
+}
+
+@media (min-width:900px) {
+    margin-bottom: 4em;
+}
 .btn-back {
     background-color: transparent;
     border: none;

@@ -5,7 +5,7 @@ input[type=text] {
     text-align: center;
     font-size: 1.2rem;
 }
-
 input[type=text]:focus {
-    border: #ED6A5A;
+    outline: #ED6A5A solid;
 }
+

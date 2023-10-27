@@ -133,7 +133,7 @@ export const Form = () => {
               holidayActivity={formData.holidayActivity}
               excitmentLevel={formData.excitmentLevel}
             />
-            <button className="btn btn-center" onClick={resetForm}>
+            <button className="btn btn-center btn-start" onClick={resetForm}>
               Plan a new trip
             </button>
           </div>

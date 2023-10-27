@@ -1,8 +1,9 @@
 .form-outer-wrapper {
     background-color: #fff;
-    padding: 2em 1em;
+    padding: 2em 1em 0 1em;
     border-radius: 10px;
 }
+
 form {
     display: flex;
     flex-direction: column;
@@ -22,16 +23,12 @@ form {
     flex-direction: column;
 }
 
-
-@media (min-width:375px){
-
-}
  @media (min-width: 600px) {
     .form-outer-wrapper {
         
         max-width: 80%;
         margin-top: 2em;
-        padding: 4em 4em;
+        padding: 4em 4em 0em 4em;
     }
 }
 
