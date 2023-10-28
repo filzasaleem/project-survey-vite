@@ -20,22 +20,21 @@ export const FormSummary = ({
   }
 const handleFormReset = () => resetForm();
   return (
-    <>
-    <article className="text form-summary">
-      <h3>Dear <span className="primary-color">{name}</span></h3>
-      <p>
-        {" "}
-        We just booked your dream trip to <span className="primary-color">{destination}</span> filled with <span className="primary-color">{holidayType}</span> activities. Among other things, you are gonna enjoy <span className="primary-color">{holidayActivity}</span>.
-      </p> 
-      <p>{feelings}</p> 
-      <h4>Enjoy!</h4>
-      
-    </article>
-    <div className="btn" >
-    <button onClick={handleFormReset}>Plan a new trip</button>
-
+    <div className="form-summary-wrapper">
+      <article className="text form-summary">
+        <h3>Dear <span className="primary-color">{name}</span></h3>
+        <p>
+          {" "}
+          We just booked your dream trip to <span className="primary-color">{destination}</span> filled with <span className="primary-color">{holidayType}</span> activities. Among other things, you are gonna enjoy <span className="primary-color">{holidayActivity}</span>.
+        </p> 
+        <p>{feelings}</p> 
+        <h4>Enjoy!</h4>
+        
+      </article>
+      <div className="btns-wrappe ">
+        <button className="btn" onClick={handleFormReset}>Plan a new trip</button>
+      </div>
     </div>
-    </>
 
   );
 };

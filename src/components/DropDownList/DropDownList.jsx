@@ -40,9 +40,9 @@ export const DropDownList = ({
           ))}
         </select>
       </div>
-      <div className="btn">
-        <button onClick={handlePrevStep}>back</button>
-        <button onClick={handleNextStep} disabled={isButtonDisabled}>
+      <div className="btns-wrapper">
+        <button className="btn-back" onClick={handlePrevStep}>Back</button>
+        <button className="btn btn-secondary" onClick={handleNextStep} disabled={isButtonDisabled}>
           Continue
         </button>
       </div>

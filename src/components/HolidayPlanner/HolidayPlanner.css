@@ -3,3 +3,13 @@ h1{
     font-weight: 700;
     color:#ED6A5A;
 }
+
+.holiday-planner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.holiday-planner-text {
+    margin-bottom: 2em;
+}

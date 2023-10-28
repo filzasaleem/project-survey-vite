@@ -5,3 +5,13 @@
 .form-summary {
     margin-bottom: 1em;
 }
+
+.form-summary-wrapper {
+    margin-bottom: 2em;
+}
+
+@media (min-width: 900px) {
+    .form-summary-wrapper {
+        margin-bottom: 4em;
+    }
+}

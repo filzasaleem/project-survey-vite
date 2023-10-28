@@ -2,6 +2,7 @@
     background-color: #fff;
     padding: 2em 1em 0 1em;
     border-radius: 10px;
+    width: 100%;
 }
 
 form {
@@ -25,7 +26,6 @@ form {
 
  @media (min-width: 600px) {
     .form-outer-wrapper {
-        
         max-width: 80%;
         margin-top: 2em;
         padding: 4em 4em 0em 4em;
@@ -34,7 +34,14 @@ form {
 
 @media (min-width: 900px) {
     .form-outer-wrapper {
-        max-width: 80%;
+        max-width: 60%;
+        margin-top: 3em;
+    }
+}
+
+@media (min-width: 1440px) {
+    .form-outer-wrapper {
+        max-width: 50%;
         margin-top: 3em;
     }
 } 

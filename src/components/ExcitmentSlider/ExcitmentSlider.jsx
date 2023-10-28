@@ -34,9 +34,9 @@ export const ExcitmentSlider = ({
           ></input>
         </div>
       </div>
-      <div className="btn">
-        <button onClick={handlePrevStep}>back</button>
-        <button onClick={handleNextStep}>Submit</button>
+      <div className="btns-wrapper">
+        <button className="btn-back" onClick={handlePrevStep}>Back</button>
+        <button className="btn btn-secondary" onClick={handleNextStep}>Submit</button>
       </div>
     </>
   );
