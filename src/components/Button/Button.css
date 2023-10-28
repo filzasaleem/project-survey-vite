@@ -7,6 +7,16 @@
     padding: 0.3em 0.3em;
 }
 
+.btn:disabled {
+    background-color: #a0a0a0;
+    border: 1px solid #a0a0a0;
+}
+
+.btn:disabled .btn:hover {
+    background-color: #a0a0a0;
+    border: 1px solid #a0a0a0;
+}
+
 .btn:hover {
     cursor: pointer;
     background-color: #ed998e;
@@ -23,7 +33,7 @@
 
 @media (min-width:900px) {
     .btn-back {
-        margin-bottom: 4em;
+        /* margin-bottom: 4em; */
     }
 }
 .btn-back {
@@ -36,10 +46,20 @@
 
 .btn-back:hover {
     cursor: pointer;
-    color: #ED6A5A;
+    color:#ED6A5A;
 }
 
-.buttons {
+.btn-start {
+    margin-bottom: 1em;
+}
+
+@media (min-width:900px) {
+    .btn-start {
+        margin-bottom: 4em;
+    } 
+}
+
+.btns-wrapper {
     margin-top: 1em;
     display: flex;
     justify-content: center;

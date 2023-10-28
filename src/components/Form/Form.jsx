@@ -7,7 +7,6 @@ import { DropDownList } from "../DropDownList/DropDownList";
 import { ExcitmentSlider } from "../ExcitmentSlider/ExcitmentSlider";
 import { Error } from "../Error/Error";
 import { ProgressBar } from "../ProgressBar/ProgressBar";
-
 import { FormSummary } from "../FormSummary/FormSummary";
 
 import "./Form.css";

@@ -31,7 +31,7 @@ export const DropDownList = ({
         <label>
           <h3 className="text-center">{question}</h3>
         </label>
-        <select value={value} onChange={handleInputChange}>
+        <select className="dropdown" value={value} onChange={handleInputChange}>
           <option value="">Select your favorite option</option>
           {activities.map((activity) => (
             <option key={activity} value={activity}>
@@ -40,9 +40,9 @@ export const DropDownList = ({
           ))}
         </select>
       </div>
-      <div className="btn">
-        <button onClick={handlePrevStep}>back</button>
-        <button onClick={handleNextStep} disabled={isButtonDisabled}>
+      <div className="btns-wrapper">
+        <button className="btn-back" onClick={handlePrevStep}>Back</button>
+        <button className="btn btn-secondary" onClick={handleNextStep} disabled={isButtonDisabled}>
           Continue
         </button>
       </div>
