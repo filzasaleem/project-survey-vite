@@ -31,7 +31,7 @@ export const DropDownList = ({
         <label>
           <h3 className="text-center">{question}</h3>
         </label>
-        <select value={value} onChange={handleInputChange}>
+        <select className="dropdown" value={value} onChange={handleInputChange}>
           <option value="">Select your favorite option</option>
           {activities.map((activity) => (
             <option key={activity} value={activity}>

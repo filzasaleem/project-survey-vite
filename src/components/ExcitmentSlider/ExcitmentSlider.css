@@ -1,7 +1,13 @@
+.slider-excited-wrapper {
+    width: 100%;
+    max-width: 30rem;
+}
+
 .slider-excited {
     cursor: pointer;
     width: 100%;
     accent-color: #ED6A5A;
+    font-size: 1.2rem;
 }
 
 .excitment-wrapper {
@@ -17,4 +23,5 @@
     font-size: 1.25rem;
     color: #ED6A5A;
     font-weight: 700;
+    
 }

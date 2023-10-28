@@ -1,4 +1,4 @@
-input[type=select] {
+.dropdown {
     width: 100%;
     max-width: 20rem;
     padding: 0.5rem;
@@ -7,6 +7,6 @@ input[type=select] {
     accent-color: #ED6A5A;   
 }
 
-input[type=select]:focus {
+.dropdown:focus {
     outline-color: #ED6A5A;
 }
