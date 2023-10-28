@@ -127,7 +127,7 @@ export const Form = () => {
             resetForm={resetForm}
           />
         ))}
-        {currentStep >0 && currentStep < 6 && <ProgressBar currentStep={currentStep} totalLength={numOfQuestions} />}
+        {currentStep > 0 && currentStep < 6 && <ProgressBar currentStep={currentStep} totalLength={numOfQuestions} />}
     </div>
   );
 };
