@@ -59,3 +59,6 @@ Project link: [Holiday Planner - A React Project]()
 <a href="instructions.md">
    See instructions of this project
 </a>
+
+## Deployed project link
+https://our-survey-project.netlify.app/
