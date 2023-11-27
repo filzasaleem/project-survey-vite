@@ -1,21 +1,13 @@
-<h1 align="center">
-  <a href="">
-    <img src="/src/assets/survey.svg" alt="Project Banner Image">
-  </a>
-</h1>
+A project by [Fiza Saleem](https://github.com/filzasaleem) and [Caroline Englund](https://github.com/carrocarrocarro/)
 
-# The Holiday Planner - Survey Project
+# The Holiday Planner - Survey Project(week 5)
 
-This project is an assignment in the course JavaScript and React by Techingo(https://www.technigo.io/). The main goal with this project was learn how to work with form and the useState() hook in React. 
+This is the weekly project in the course JavaScript and React by Techingo(https://www.technigo.io/). The main goal with this project was learn how to work with form and the useState() hook in React. 
 
 ## About the Holiday Planner
 
 The user can use this little website to plan their dream holiday. Based on the user's input and answers to the question the dream holiday is planned. 
 
-## Team Members
-
-[Fiza Saleem](https://github.com/filzasaleem)
-[Caroline Englund](https://github.com/carrocarrocarro/)
 
 ## Getting Started with the Project
 
@@ -48,11 +40,14 @@ UX flow
 * [Vite](https://vitejs.dev/)
 * JavaScript
 * CSS
-* [Figma](https://www.figma.com/) 
+* [Figma](https://www.figma.com/)
+
+### Future works
+In the future, the app can be improved to enhance user experience by allowing users to press the Enter key to move to the next question instead of relying solely on the continue button. Additionally, there's a bug when navigating backward in the form that needs fixing.
 
 ### View it live
 
-Project link: [Holiday Planner - A React Project]()
+Project link: [Holiday Planner - A React Project](https://our-survey-project.netlify.app/)
 
 ## Instructions
 
@@ -60,5 +55,4 @@ Project link: [Holiday Planner - A React Project]()
    See instructions of this project
 </a>
 
-## Deployed project link
-https://our-survey-project.netlify.app/
+
