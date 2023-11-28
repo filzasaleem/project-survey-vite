@@ -1,8 +1,13 @@
 A project by [Fiza Saleem](https://github.com/filzasaleem) and [Caroline Englund](https://github.com/carrocarrocarro/)
 
+
 # The Holiday Planner - Survey Project(week 5)
 
 This is the weekly project in the course JavaScript and React by Techingo(https://www.technigo.io/). The main goal with this project was learn how to work with form and the useState() hook in React. 
+
+### View it live
+
+Project link: [Holiday Planner - A React Project](https://our-survey-project.netlify.app/)
 
 ## About the Holiday Planner
 
@@ -45,9 +50,6 @@ UX flow
 ### Future works
 In the future, the app can be improved to enhance user experience by allowing users to press the Enter key to move to the next question instead of relying solely on the continue button. Additionally, there's a bug when navigating backward in the form that needs fixing.
 
-### View it live
-
-Project link: [Holiday Planner - A React Project](https://our-survey-project.netlify.app/)
 
 ## Instructions
 
